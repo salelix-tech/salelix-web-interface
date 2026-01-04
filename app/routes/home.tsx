@@ -9,6 +9,14 @@ export function meta({ }: Route.MetaArgs) {
   ];
 }
 
+export const loader = async () => {
+  return new Response(null, {
+    headers: {
+      "Cache-Control": "public, max-age=300, s-maxage=3600"
+    }
+  })
+}
+
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-black overflow-hidden font-sans">
